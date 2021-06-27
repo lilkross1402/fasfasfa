@@ -1,5 +1,5 @@
 import requests
-from torneo import Torneo
+
 
 def ver_torneo(torneo):
   for x in db:
@@ -15,7 +15,45 @@ def ver_torneo(torneo):
 
   juego.append(encuentro)
 
-return(juego)
+  return(juego)
+
+
+def main():
+
+  url = "https://free-football-soccer-videos.p.rapidapi.com/"
+
+  headers = {
+    'x-rapidapi-key': "f348edef61msh028f6864f1b8bb3p185d83jsn7a87c6b04517",
+    'x-rapidapi-host': "free-football-soccer-videos.p.rapidapi.com"
+    }
+    
+  response = requests.request("GET", url, headers=headers)
+
+  db = response.json()
+
+  print(input("Bienvenido a la lista de torneos"))
+  while Tr…
+[6:41 p. m., 27/6/2021] +58 412-6031921: que error te da?
+[6:42 p. m., 27/6/2021] Victor D😎: El break no lo toma en ninguna parte :c
+[6:42 p. m., 27/6/2021] +58 412-6031921: jajaj a ver el error
+[6:42 p. m., 27/6/2021] Victor D😎: import requests
+
+
+def ver_torneo(torneo):
+  for x in db:
+    name = x["title"]
+    name_competition = x["name"]["competition"]
+    id_game = x["competition"]["id"]
+    thumbnail = ["thumbnail"]
+    url = x["url"]
+    date_game = x["competition"]["date"]
+
+
+  encuentro = Torneo(name,name_competition,id_game,thumbnail,url,date_game)
+
+  juego.append(encuentro)
+
+  return(juego)
 
 
 def main():
@@ -33,25 +71,25 @@ def main():
 
   print(input("Bienvenido a la lista de torneos"))
   while True:
-      print("\n1. Ver torneo\n2. Ver Partido\n3. Salir\n. ")
-      seleccion = input("Ingrese el numero de su preferencia")
-      while (not seleccion.isnumeric()) or (int(seleccion)) not in range(1,4):
-          seleccion = input("Por favor ingrese un número valido")
+    print("\n1. Ver torneo\n2. Ver Partido\n3. Salir\n. ")
+    seleccion = input("Ingrese el numero de su preferencia  " ) 
+    while (not seleccion.isnumeric()) or (int(seleccion)) not in range(1,4):
+        seleccion = input("Por favor ingrese un número valido")
 
-      print("\n")
+    print("\n")
 
-  lista_torneo(torneo)
+def lista_torneo(torneo):
 
     if int(seleccion) == 1:
-      for i,t in enumerate(juego):
-        print(f"{i+1}.(mostrar(t.(name_competition)))"
-          
-    if int(seleccion) == 2:
-      for i,t in enumerate(juego):
-        t.mostrar()
-      
-    if seleccion == "3":
-      break
-       print("Gracias por preferirnos, Saman Sports TV").upper()
+        for i,t in enumerate(juego):
+            print(f"{i+1}.{mostrar(t.name_competition)}")
 
+    if int(seleccion) == 2:
+        for i,t in enumerate(juego):
+            t.mostrar()
+      
+    if seleccion == 3:
+        print("Gracias por preferirnos, Saman Sports TV").upper()
+        
+   
 main()
